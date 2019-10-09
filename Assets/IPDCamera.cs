@@ -39,8 +39,12 @@ public class IPDCamera : MonoBehaviour
             return;
         }
 
-        Head.transform.position = util.GetHMDTransform().position;
-        Head.transform.rotation = util.GetHMDTransform().rotation;
+        var h = util.GetHMDTransform();
+        if (h != null)
+        {
+            Head.transform.position = h.position;
+            Head.transform.rotation = h.rotation;
+        }
 
         //IPD取得してカメラに反映
         float IPD = util.GetPropertyFloatWhenConnected(util.GetHMDIndex(), Valve.VR.ETrackedDeviceProperty.Prop_UserIpdMeters_Float);
@@ -50,10 +54,17 @@ public class IPDCamera : MonoBehaviour
             RightEye.transform.localPosition = new Vector3(IPD / 2f, 0, 0);
         }
 
-        LeftHand.transform.position = util.GetLeftControllerTransform().position;
-        LeftHand.transform.rotation = util.GetLeftControllerTransform().rotation;
+        var l = util.GetLeftControllerTransform();
+        if (l != null) {
+            LeftHand.transform.position = l.position;
+            LeftHand.transform.rotation = l.rotation;
+        }
 
-        RightHand.transform.position = util.GetRightControllerTransform().position;
-        RightHand.transform.rotation = util.GetRightControllerTransform().rotation;
+        var r = util.GetRightControllerTransform();
+        if (r != null)
+        {
+            RightHand.transform.position = r.position;
+            RightHand.transform.rotation = r.rotation;
+        }
     }
 }
