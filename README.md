@@ -18,3 +18,7 @@ https://sabowl.sakura.ne.jp/gpsnmeajp/publictest/HelloSpaceOverlay.zip
 6. 実行します
 
 例: https://twitter.com/Seg_Faul/status/1181532131064860672?s=20
+
+注意
+1. HTC Vive以外はいい感じにならないかもしれません。 EOVROのWidthや、カメラのFOVを調整してください 
+2. 解像度が高めのためVRAMを非常に消費します。
